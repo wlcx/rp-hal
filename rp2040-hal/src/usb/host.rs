@@ -370,6 +370,10 @@ impl HostBus for UsbHostBus {
             inner.ctrl_reg.inte.modify(|_, w| w.host_sof().bit(enable));
         });
     }
+
+    fn ls_preamble(&mut self, _enabled: bool) {}
+
+    fn stop_transaction(&mut self) {}
 }
 
 struct Inner {
